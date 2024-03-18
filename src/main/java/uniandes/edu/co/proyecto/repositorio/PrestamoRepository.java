@@ -49,4 +49,6 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Integer> {
   @Transactional
   @Query(value = "DELETE FROM prestamos WHERE id = :id", nativeQuery = true)
   void eliminaPrestamo(@Param("id") long id);
+
+  
 }

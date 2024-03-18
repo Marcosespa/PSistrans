@@ -1,6 +1,5 @@
 package uniandes.edu.co.proyecto.repositorio;
 
-import java.sql.Date;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,8 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import uniandes.edu.co.proyecto.modelo.Empleado;
 import uniandes.edu.co.proyecto.modelo.Oficina;
-import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
-import uniandes.edu.co.proyecto.modelo.Prestamo;
 
 public interface OficinaRepository extends JpaRepository<Oficina, String> {
 
@@ -29,11 +26,20 @@ public interface OficinaRepository extends JpaRepository<Oficina, String> {
 
   @Modifying
   @Transactional
-  @Query(value = "INSERT INTO oficinas (id_Oficina, nombre, direccion, numPuntosAtencion, ciudad, gerente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
-  OperacionCuenta insertarOficina(@Param("nombre") String nombre,
+  @Query(value = "INSERT INTO oficinas (id, nombre, direccion, numero_puntos_atencion,gerente,ciudad) VALUES(proyecto_sequence.nextval,:nombre, :direccion,:numPuntosAtencion,:gerente,:ciudad) ", nativeQuery = true)
+  void  insertarOficina(@Param("nombre") String nombre,
       @Param("direccion") String direccion,
       @Param("numPuntosAtencion") Integer numPuntosAtencion,
-      @Param("ciudad") String ciudad,
-      @Param("gerente") Empleado gerente);
+      @Param("gerente") Empleado gerente,
+      @Param("ciudad") String ciudad);
+
+  @Modifying
+  @Transactional
+  @Query(value = "UPDATE oficinas SET nombre= :nombre , direccion= :direccion, numero_puntos_atencion =:numPuntosAtencion,gerente=:gerente,ciudad =:ciudad", nativeQuery = true)
+  void  actualizarOficina(@Param("nombre") String nombre,
+      @Param("direccion") String direccion,
+      @Param("numPuntosAtencion") Integer numPuntosAtencion,
+      @Param("gerente") Empleado gerente,
+      @Param("ciudad") String ciudad);
 
 }
