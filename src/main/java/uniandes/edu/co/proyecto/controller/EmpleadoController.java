@@ -21,7 +21,7 @@ public class EmpleadoController {
   private EmpleadoRepository empleadoRepository;
 
   @GetMapping("/empleados")
-  public String cuentas(Model model) {
+  public String empleados(Model model) {
     model.addAttribute("empleados", empleadoRepository.darEmpleados());
     return "empleados";
 
@@ -34,7 +34,7 @@ public class EmpleadoController {
   }
 
   @PostMapping("/empleados/new/save")
-  public String cuentaGuardar(@ModelAttribute Empleado empleado) {
+  public String empleadoGuardar(@ModelAttribute Empleado empleado) {
     empleadoRepository.insertarEmpleado(empleado.getTipo(), empleado.getTipoDocumento(), empleado.getNombre(),
         empleado.getNacionalidad(), empleado.getDireccionFisica(), empleado.getDireccionElectronica(),
         empleado.getCodigoPostal(), empleado.getCiudad(), empleado.getDepartamento(), empleado.getCargo());
@@ -42,26 +42,29 @@ public class EmpleadoController {
   }
 
   @GetMapping("/empleados/{numeroDocumento}/edit")
-  public String cuentaEditarForm(@PathVariable("numeroDocumento") int numeroDocumento, Model model) {
+  public String empleadoEditarForm(@PathVariable("numeroDocumento") long numeroDocumento, Model model) {
     Empleado empleado = empleadoRepository.darEmpleado(numeroDocumento);
-    if (cuenta != null) {
-      model.addAttribute("cuenta", cuenta);
-      return "cuentaEditar";
+    if (empleado != null) {
+      model.addAttribute("empleado", empleado);
+      return "empleadoEditar";
     } else {
-      return "redirect:/cuentas";
+      return "redirect:/empleados";
     }
   }
 
-  @PostMapping("/cuentas/{numeroCuenta}/edit/save")
-  public String cuentaEditarGuardar(@PathVariable("numeroCuenta") long numeroCuenta, @ModelAttribute Cuenta cuenta) {
-    cuentaRepository.actualizarCuenta(((long) numeroCuenta), cuenta.getEstado(), cuenta.getSaldo(), cuenta.getTipo(),
-        cuenta.getUltimaTransaccion(), cuenta.getFechaCreacion(), cuenta.getGerente());
-    return "redirect:/cuentas";
+  @PostMapping("/empleados/{numeroDocumento}/edit/save")
+  public String empleadoEditarGuardar(@PathVariable("numeroDocumento") long numeroDocumento,
+      @ModelAttribute Empleado empleado) {
+    empleadoRepository.actualizarEmpleado(((long) numeroDocumento), empleado.getTipo(), empleado.getTipoDocumento(),
+        empleado.getNombre(),
+        empleado.getNacionalidad(), empleado.getDireccionFisica(), empleado.getDireccionElectronica(),
+        empleado.getCodigoPostal(), empleado.getCiudad(), empleado.getDepartamento(), empleado.getCargo());
+    return "redirect:/empleados";
   }
 
-  @GetMapping("/cuentas/{numeroCuenta}/delete")
-  public String cuentaEliminar(@PathVariable("numeroCuenta") long numeroCuenta) {
-    cuentaRepository.eliminarCuenta(numeroCuenta);
-    return "redirect:/cuentas";
+  @GetMapping("/empleados/{numeroDocumento}/delete")
+  public String empleadoEliminar(@PathVariable("numeroDocumento") long numeroDocumento) {
+    empleadoRepository.eliminarEmpleado(numeroDocumento);
+    return "redirect:/empleados";
   }
 }
