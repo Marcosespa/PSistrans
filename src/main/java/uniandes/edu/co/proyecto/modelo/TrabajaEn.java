@@ -15,8 +15,8 @@ public class TrabajaEn {
         ;
     }
 
-    public TrabajaEn(Empleado numeroDocumento, Oficina id_Oficina) {
-        this.pk = new TrabajaEnPK(numeroDocumento, id_Oficina);
+    public TrabajaEn(Empleado numeroDocumento, Oficina id) {
+        this.pk = new TrabajaEnPK(numeroDocumento, id);
     }
 
     public TrabajaEnPK getPk() {
