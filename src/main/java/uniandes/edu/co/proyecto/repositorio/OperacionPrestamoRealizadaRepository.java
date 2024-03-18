@@ -13,7 +13,7 @@ import uniandes.edu.co.proyecto.modelo.OperacionPrestamoRealizadaPK;
 import uniandes.edu.co.proyecto.modelo.Empleado;
 import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
 
-public interface OperacionPrestamoRealizadaRepository extends JpaRepository<OperacionPrestamoRealizadaPK, String> {
+public interface OperacionPrestamoRealizadaRepository extends JpaRepository<OperacionPrestamoRealizada, String> {
 
     @Query(value = "SELECT * FROM tienen", nativeQuery = true)
     Collection<OperacionPrestamoRealizadaPK> darOperacionPrestamoRealizada();
