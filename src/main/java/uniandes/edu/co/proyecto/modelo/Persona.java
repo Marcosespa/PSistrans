@@ -1,7 +1,5 @@
 package uniandes.edu.co.proyecto.modelo;
 
-import java.sql.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -44,5 +42,96 @@ public abstract class Persona {
     this.ciudad = ciudad;
     this.departamento = departamento;
   }
+
+  public String getNumeroDocumento() {
+    return numeroDocumento;
+  }
+
+  public void setNumeroDocumento(String numeroDocumento) {
+    this.numeroDocumento = numeroDocumento;
+  }
+
+  public String getTipo() {
+    return tipo;
+  }
+
+  public void setTipo(String tipo) {
+    this.tipo = tipo;
+  }
+
+  public String getTipoDocumento() {
+    return tipoDocumento;
+  }
+
+  public void setTipoDocumento(String tipoDocumento) {
+    this.tipoDocumento = tipoDocumento;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+
+  public String getNacionalidad() {
+    return nacionalidad;
+  }
+
+  public void setNacionalidad(String nacionalidad) {
+    this.nacionalidad = nacionalidad;
+  }
+
+  public String getDireccionFisica() {
+    return direccionFisica;
+  }
+
+  public void setDireccionFisica(String direccionFisica) {
+    this.direccionFisica = direccionFisica;
+  }
+
+  public String getDireccionElectronica() {
+    return direccionElectronica;
+  }
+
+  public void setDireccionElectronica(String direccionElectronica) {
+    this.direccionElectronica = direccionElectronica;
+  }
+
+  public String getTelefono() {
+    return telefono;
+  }
+
+  public void setTelefono(String telefono) {
+    this.telefono = telefono;
+  }
+
+  public String getCodigoPostal() {
+    return codigoPostal;
+  }
+
+  public void setCodigoPostal(String codigoPostal) {
+    this.codigoPostal = codigoPostal;
+  }
+
+  public String getCiudad() {
+    return ciudad;
+  }
+
+  public void setCiudad(String ciudad) {
+    this.ciudad = ciudad;
+  }
+
+  public String getDepartamento() {
+    return departamento;
+  }
+
+  public void setDepartamento(String departamento) {
+    this.departamento = departamento;
+  }
+
+  
+
 
 }
