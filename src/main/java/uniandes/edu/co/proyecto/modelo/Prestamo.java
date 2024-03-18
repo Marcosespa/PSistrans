@@ -1,16 +1,10 @@
 package uniandes.edu.co.proyecto.modelo;
-
-import java.util.ArrayList;
-import java.util.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import oracle.net.aso.l;
+
 
 @Entity
 @Table(name = "prestamos")
