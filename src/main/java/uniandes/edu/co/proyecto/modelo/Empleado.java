@@ -15,7 +15,6 @@ public class Empleado {
   private Integer numeroDocumento;
 
   private String tipo; // Este se refiere a tipo de personas natural o juridica
-
   private String tipoDocumento;
   private String nombre;
   private String nacionalidad;
@@ -31,10 +30,9 @@ public class Empleado {
     ;
   }
 
-  public Empleado(Integer numeroDocumento, String tipo, String tipoDocumento, String nombre, String nacionalidad,
+  public Empleado(String tipo, String tipoDocumento, String nombre, String nacionalidad,
       String direccionFisica, String direccionElectronica, String telefono, String codigoPostal, String ciudad,
       String departamento, String cargo) {
-    this.numeroDocumento = numeroDocumento;
     this.tipo = tipo;
     this.tipoDocumento = tipoDocumento;
     this.nombre = nombre;
