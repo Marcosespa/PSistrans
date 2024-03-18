@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CuentaController {
@@ -27,12 +26,12 @@ public class CuentaController {
 
   @GetMapping("/cuentas/new")
   public String cuentasForm(Model model) {
-    model.addAttribute("cuentas", new Cuenta());
+    model.addAttribute("cuenta", new Cuenta());
     return "cuentaNueva";
   }
 
   @PostMapping("/cuentas/new/save")
-  public String cuentGuardar(@ModelAttribute Cuenta cuenta) {
+  public String cuentaGuardar(@ModelAttribute Cuenta cuenta) {
     cuentaRepository.insertarCuenta(cuenta.getEstado(), cuenta.getSaldo(), cuenta.getTipo(),
         cuenta.getUltimaTransaccion(), cuenta.getFechaCreacion(), cuenta.getGerente());
     return "redirect:/cuentas";
@@ -50,10 +49,8 @@ public class CuentaController {
   }
 
   @PostMapping("/cuentas/{numeroCuenta}/edit/save")
-  public String cuentaEditarGuardar(@PathVariable("numeroCuenta") long numeroCuenta,
-      @ModelAttribute Cuenta cuenta) {
-
-    cuentaRepository.actualizarCuenta(cuenta.getEstado(), cuenta.getSaldo(), cuenta.getTipo(),
+  public String cuentaEditarGuardar(@PathVariable("numeroCuenta") long numeroCuenta, @ModelAttribute Cuenta cuenta) {
+    cuentaRepository.actualizarCuenta(((long) numeroCuenta), cuenta.getEstado(), cuenta.getSaldo(), cuenta.getTipo(),
         cuenta.getUltimaTransaccion(), cuenta.getFechaCreacion(), cuenta.getGerente());
     return "redirect:/cuentas";
   }

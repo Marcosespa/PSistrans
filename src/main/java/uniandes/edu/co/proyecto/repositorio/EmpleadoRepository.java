@@ -29,11 +29,16 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
 
   @Modifying
   @Transactional
-  @Query(value = "INSERT INTO empleados (id_Oficina, nombre, direccion, numPuntosAtencion, ciudad, gerente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
-  void insertarOficina(@Param("nombre") String nombre,
-      @Param("direccion") String direccion,
-      @Param("numPuntosAtencion") Integer numPuntosAtencion,
+  @Query(value = "INSERT INTO empleados (numeroDocumento, tipo,tipoDocumento, nombre, nacionalidad, direccionFisica, direccionElectronica,telefono,codigoPostal,ciudad,departamento,cargo) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
+  void insertarOficina(@Param("tipo") String tipo,
+      @Param("tipoDocumento") String tipoDocumento,
+      @Param("nombre") String nombre,
+      @Param("nacionalidad") String nacionalidad,
+      @Param("direccionFisica") String direccionFisica,
+      @Param("direccionElectronica") String direccionElectronica,
+      @Param("codigoPostal") String codigoPostal,
       @Param("ciudad") String ciudad,
-      @Param("gerente") Empleado gerente);
+      @Param("departamento") String departamento,
+      @Param("cargo") String cargo);
 
 }

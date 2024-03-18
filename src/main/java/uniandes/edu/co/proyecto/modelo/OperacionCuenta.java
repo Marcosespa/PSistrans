@@ -20,7 +20,7 @@ public class OperacionCuenta {
     private Date fecha;
     private String cuentaSalida;
     private String montoOperacion;
-    private Date cliente;
+    private Cliente cliente;
     private String puntoAtencion;
     private String cuentaLlegada;
 
@@ -29,7 +29,7 @@ public class OperacionCuenta {
     }
 
     public OperacionCuenta(String tipoOperacion, Date fecha, String cuentaSalida, String montoOperacion,
-            Date cliente, String puntoAtencion, String cuentaLlegada) {
+            Cliente cliente, String puntoAtencion, String cuentaLlegada) {
         this.tipoOperacion = tipoOperacion;
         this.fecha = fecha;
         this.cuentaSalida = cuentaSalida;
@@ -59,7 +59,7 @@ public class OperacionCuenta {
         this.montoOperacion = montoOperacion;
     }
 
-    public void setCliente(Date cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
@@ -91,7 +91,7 @@ public class OperacionCuenta {
         return montoOperacion;
     }
 
-    public Date getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 

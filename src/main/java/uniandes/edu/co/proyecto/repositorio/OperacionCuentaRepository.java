@@ -10,6 +10,7 @@ import jakarta.transaction.Transactional;
 import java.sql.Date;
 import java.util.Collection;
 
+import uniandes.edu.co.proyecto.modelo.Cliente;
 import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
 
 public interface OperacionCuentaRepository extends JpaRepository<OperacionCuenta, Integer> {
@@ -23,14 +24,14 @@ public interface OperacionCuentaRepository extends JpaRepository<OperacionCuenta
         @Modifying
         @Transactional
         @Query(value = "DELETE FROM operaciones_cuentas WHERE id = :id", nativeQuery = true)
-        void eliminarBebedor(@Param("id") long id);
+        void eliminarOperacionCuenta(@Param("id") long id);
 
         @Query(value = "INSERT INTO operaciones_cuentas (id, tipo_operacion, fecha,cuenta_salida, monto_operacion , cliente, punto_atencion,cuenta_llegada) VALUEs(proyecto_sequence.nextval) ", nativeQuery = true)
         void insertarOperacionCuenta(@Param("tipo_operacion") String tipoOperacion,
                         @Param("fecha") Date fecha,
                         @Param("cuenta_salida") String cuentaSalida,
                         @Param("monto_operacion") String montoOperacion,
-                        @Param("cliente") Date cliente,
+                        @Param("cliente") Cliente cliente,
                         @Param("punto_atencion") String puntoAtencion,
                         @Param("cuenta_llegada") String cuentaLlegada);
 
@@ -43,7 +44,7 @@ public interface OperacionCuentaRepository extends JpaRepository<OperacionCuenta
                         @Param("fecha") Date fecha,
                         @Param("cuenta_salida") String cuentaSalida,
                         @Param("monto_operacion") String montoOperacion,
-                        @Param("cliente") Date cliente,
+                        @Param("cliente") Cliente cliente,
                         @Param("punto_atencion") String puntoAtencion,
                         @Param("cuenta_llegada") String cuentaLlegada);
 
