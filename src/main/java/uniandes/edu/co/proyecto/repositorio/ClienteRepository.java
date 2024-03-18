@@ -25,14 +25,30 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE clientes SET numero_documento = :numero_documento_actualizado, login = :login_actualizado WHERE numero_documento = :numero_documento AND login = :login", nativeQuery = true)
-    void actualizarCliente(@Param("numero_documento") String numero_documento, @Param("login") String login,
-            @Param("numero_documento_actualizado") String numero_documento_actualizado,
-            @Param("login_actualizado") String login_actualizado);
+    @Query(value = "UPDATE clientes SET tipo = :tipo, tipoDocumento = :tipoDocumento,nombre = :nombre, nacionalidad =: nacionalidad, direccionFisica =: direccionFisica,direccionElectronica =: direccionElectronica ,codigoPostal=: codigoPostal, ciudad=:ciudad, departamento:=departamento  WHERE numero_documento = :numero_documento", nativeQuery = true)
+    void actualizarCliente(@Param("numero_documento") long numero_documento,
+            @Param("tipo") String tipo,
+            @Param("tipoDocumento") String tipoDocumento,
+            @Param("nombre") String nombre,
+            @Param("nacionalidad") String nacionalidad,
+            @Param("direccionFisica") String direccionFisica,
+            @Param("direccionElectronica") String direccionElectronica,
+            @Param("codigoPostal") String codigoPostal,
+            @Param("ciudad") String ciudad,
+            @Param("departamento") String departamento);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO clientes (numero_documento, login) VALUES (:numero_documento, :login)", nativeQuery = true)
-    void insertarCliente(@Param("numero_documento") String numero_documento, @Param("login") String login);
+    @Query(value = "INSERT INTO clientes (numeroDocumento, tipo,tipoDocumento, nombre, nacionalidad, direccionFisica, direccionElectronica,telefono,codigoPostal,ciudad,departamento) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
+    void insertarCliente(@Param("numero_documento") long numero_documento,
+            @Param("tipo") String tipo,
+            @Param("tipoDocumento") String tipoDocumento,
+            @Param("nombre") String nombre,
+            @Param("nacionalidad") String nacionalidad,
+            @Param("direccionFisica") String direccionFisica,
+            @Param("direccionElectronica") String direccionElectronica,
+            @Param("codigoPostal") String codigoPostal,
+            @Param("ciudad") String ciudad,
+            @Param("departamento") String departamento);
 
 }
