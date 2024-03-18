@@ -15,7 +15,7 @@ public class Oficina {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer id_Oficina;
+  private Integer id;
 
   private String nombre;
 

@@ -14,8 +14,8 @@ public class Transaccion {
         ;
     }
 
-    public Transaccion(OperacionCuenta id_Operacion, Cuenta id_Cuenta) {
-        this.pk = new TransaccionPK(id_Operacion, id_Cuenta);
+    public Transaccion(OperacionCuenta idOperacionCuenta, Cuenta id_Cuenta) {
+        this.pk = new TransaccionPK(idOperacionCuenta, id_Cuenta);
     }
 
     public TransaccionPK getPk() {

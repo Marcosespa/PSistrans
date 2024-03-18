@@ -1,45 +1,38 @@
 package uniandes.edu.co.proyecto.modelo;
 
-
-
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuarios_empleados")
 public class UsuarioEmpleado {
-    @Id
-    private String login;
-    private String password;
-    
-    public UsuarioEmpleado(String login, String password) {
-        this.login = login;
-        this.password = password;
-    }
+  @Id
+  private String login;
 
-    public UsuarioEmpleado() {;}
+  private String passwordEmpleado;
 
-    public String getLogin() {
-        return login;
-    }
+  public UsuarioEmpleado(String login, String passwordEmpleado) {
+    this.login = login;
+    this.passwordEmpleado = passwordEmpleado;
+  }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+  public String getLogin() {
+    return login;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public void setLogin(String login) {
+    this.login = login;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public String getPasswordEmpleado() {
+    return passwordEmpleado;
+  }
 
-    
-
-    
-
-
+  public void setPasswordEmpleado(String passwordEmpleado) {
+    this.passwordEmpleado = passwordEmpleado;
+  }
 
 }
