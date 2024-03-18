@@ -17,17 +17,19 @@ public class EmpleadoPK implements Serializable {
     @JoinColumn(name = "login", referencedColumnName = "login")
     private UsuarioEmpleado login;
 
+    private String cargo;
+
     public EmpleadoPK()
     {
         super();
     }
 
-    
-    public EmpleadoPK(Persona numeroDocumento, UsuarioEmpleado login)
-    {
+
+    public EmpleadoPK(Persona numeroDocumento, UsuarioEmpleado login, String cargo) {
         super();
         this.numeroDocumento = numeroDocumento;
         this.login = login;
+        this.cargo = cargo;
     }
 
 
@@ -48,6 +50,20 @@ public class EmpleadoPK implements Serializable {
 
     public void setLogin(UsuarioEmpleado login) {
         this.login = login;
+    }
+
+
+
+
+    public String getCargo() {
+        return cargo;
+    }
+
+
+
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
 }

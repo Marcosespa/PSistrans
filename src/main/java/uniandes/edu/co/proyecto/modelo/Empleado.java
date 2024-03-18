@@ -14,8 +14,8 @@ public class Empleado extends Persona {
     ;
   }
 
-  public Empleado(Persona numeroDocumento, UsuarioEmpleado login) {
-    this.pk = new EmpleadoPK(numeroDocumento, login);
+  public Empleado(Persona numeroDocumento, UsuarioEmpleado login, String cargo) {
+    this.pk = new EmpleadoPK(numeroDocumento, login,cargo);
   }
 
   public EmpleadoPK getPk() {

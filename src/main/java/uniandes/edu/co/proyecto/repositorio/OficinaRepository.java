@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import uniandes.edu.co.proyecto.modelo.Empleado;
 import uniandes.edu.co.proyecto.modelo.Oficina;
 
-public interface OficinaRepository extends JpaRepository<Oficina, String> {
+public interface OficinaRepository extends JpaRepository<Oficina, Integer> {
 
   @Query(value = "SELECT * FROM oficinas", nativeQuery = true)
   Collection<Oficina> darOficinas();
@@ -35,10 +35,11 @@ public interface OficinaRepository extends JpaRepository<Oficina, String> {
 
   @Modifying
   @Transactional
-  @Query(value = "UPDATE oficinas SET nombre= :nombre , direccion= :direccion, numero_puntos_atencion =:numPuntosAtencion,gerente=:gerente,ciudad =:ciudad", nativeQuery = true)
-  void  actualizarOficina(@Param("nombre") String nombre,
+  @Query(value = "UPDATE oficinas SET nombre= :nombre , direccion= :direccion, numero_puntos_atencion =:numero_puntos_atencion,gerente=:gerente,ciudad =:ciudad WHERE id = :id", nativeQuery = true)
+  void  actualizarOficina(@Param("id") Integer id,
+    @Param("nombre") String nombre,
       @Param("direccion") String direccion,
-      @Param("numPuntosAtencion") Integer numPuntosAtencion,
+      @Param("numero_puntos_atencion") Integer numero_puntos_atencion,
       @Param("gerente") Empleado gerente,
       @Param("ciudad") String ciudad);
 
