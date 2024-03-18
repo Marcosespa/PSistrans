@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Empleado {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private String numero_documento;
+  private Integer numero_documento;
 
   private String tipo; // Este se refiere a tipo de personas natural o juridica
   private String tipoDocumento;
@@ -30,7 +30,7 @@ public class Empleado {
     ;
   }
 
-  public Empleado(String numero_documento,String tipo, String tipoDocumento, String nombre, String nacionalidad,
+  public Empleado(Integer numero_documento,String tipo, String tipoDocumento, String nombre, String nacionalidad,
       String direccionFisica, String direccionElectronica, String telefono, String codigoPostal, String ciudad,
       String departamento, String cargo) {
     this.numero_documento= numero_documento;
@@ -47,11 +47,11 @@ public class Empleado {
     this.cargo = cargo;
   }
 
-  public String getNumeroDocumento() {
+  public Integer getNumeroDocumento() {
     return numero_documento;
   }
 
-  public void setNumeroDocumento(String numeroDocumento) {
+  public void setNumeroDocumento(Integer numeroDocumento) {
     this.numero_documento = numeroDocumento;
   }
 

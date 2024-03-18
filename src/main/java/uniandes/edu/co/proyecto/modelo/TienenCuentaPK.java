@@ -15,7 +15,7 @@ public class TienenCuentaPK implements Serializable {
 
 
     @ManyToOne
-    @JoinColumn(name = "numero_documnto", referencedColumnName = "id")
+    @JoinColumn(name = "numero_documnto", referencedColumnName = "numero_documento")
     private Cliente numero_documento;
 
     public TienenCuentaPK()
