@@ -35,11 +35,11 @@ public class TransaccionPK implements Serializable {
     }
 
     public Cuenta getId_Cuenta() {
-        return id_Cuenta;
+        return numeroCuenta;
     }
 
-    public void setId_Cuenta(Cuenta id_Cuenta) {
-        this.id_Cuenta = id_Cuenta;
+    public void setId_Cuenta(Cuenta numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
     }
 
 }
