@@ -30,10 +30,9 @@ public class Empleado {
     ;
   }
 
-  public Empleado(Integer numero_documento,String tipo, String tipoDocumento, String nombre, String nacionalidad,
+  public Empleado(String tipo, String tipoDocumento, String nombre, String nacionalidad,
       String direccionFisica, String direccionElectronica, String telefono, String codigoPostal, String ciudad,
       String departamento, String cargo) {
-    this.numero_documento= numero_documento;
     this.tipo = tipo;
     this.tipoDocumento = tipoDocumento;
     this.nombre = nombre;
