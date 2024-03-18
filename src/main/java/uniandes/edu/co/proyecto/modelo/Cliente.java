@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente extends Persona {
+public class Cliente {
 
   @EmbeddedId
   private ClientePK pk;

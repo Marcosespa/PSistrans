@@ -24,7 +24,7 @@ public interface CuentaRepository extends JpaRepository<Cuenta, String> {
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM cuentas WHERE id = :id", nativeQuery = true)
-    void eliminarBebedor(@Param("id") long id);
+    void eliminarCuenta(@Param("id") long id);
 
     @Modifying
     @Transactional

@@ -30,7 +30,7 @@ public interface PuntoAtencionRepository extends JpaRepository<PuntoAtencion, St
   @Modifying
   @Transactional
   @Query(value = "INSERT INTO puntosatencion (tipo, ciudad, horarioAtencion, direccion) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
-  OperacionCuenta insertarCuenta(
+  OperacionCuenta insertarPuntoAtencion(
       @Param("tipo") String tipo,
       @Param("ciudad") String ciudad,
       @Param("horarioAtencion") String horarioAtencion,
