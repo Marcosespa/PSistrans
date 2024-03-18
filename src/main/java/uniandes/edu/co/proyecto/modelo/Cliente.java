@@ -25,6 +25,8 @@ public class Cliente {
   private String codigoPostal;
   private String ciudad;
   private String departamento;
+  private String login;
+  private String password;
 
   public Cliente() {
     ;
@@ -32,7 +34,7 @@ public class Cliente {
 
   public Cliente(String numeroDocumento, String tipo, String tipoDocumento, String nombre, String nacionalidad,
       String direccionFisica, String direccionElectronica, String telefono, String codigoPostal, String ciudad,
-      String departamento) {
+      String departamento, String login, String password) {
     this.numero_documento = numeroDocumento;
     this.tipo = tipo;
     this.tipoDocumento = tipoDocumento;
@@ -44,6 +46,9 @@ public class Cliente {
     this.codigoPostal = codigoPostal;
     this.ciudad = ciudad;
     this.departamento = departamento;
+    this.login = login;
+    this.password=password;
+
   }
 
   public String getNumeroDocumento() {
@@ -134,4 +139,19 @@ public class Cliente {
     this.departamento = departamento;
   }
 
+  public String getLogin() {
+    return login;
+  }
+
+  public void setLogin(String login) {
+    this.login = login;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
 }
