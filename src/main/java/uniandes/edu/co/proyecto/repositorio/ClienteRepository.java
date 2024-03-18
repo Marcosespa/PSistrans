@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import jakarta.transaction.Transactional;
 import uniandes.edu.co.proyecto.modelo.Cliente;
 
-public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
+public interface ClienteRepository extends JpaRepository<Cliente, String> {
 
     @Query(value = "SELECT * FROM clientes", nativeQuery = true)
     Collection<Cliente> darCliente();
