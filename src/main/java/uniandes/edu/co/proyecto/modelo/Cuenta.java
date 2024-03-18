@@ -45,14 +45,6 @@ public class Cuenta {
     this.gerente = gerente;
   }
 
-  public String getNumeroCuenta() {
-    return numeroCuenta;
-  }
-
-  public void setNumeroCuenta(String numeroCuenta) {
-    this.numeroCuenta = numeroCuenta;
-  }
-
   public String getEstado() {
     return estado;
   }
