@@ -1,10 +1,10 @@
 package uniandes.edu.co.proyecto.modelo;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 
 @Entity
 @Table(name = "prestamos")
@@ -36,8 +36,7 @@ public class Prestamo {
   }
 
   public Prestamo(String estadoPrestamo, String tipoPrestamo, double monto, double interes,
-      int numeroCuotas, String fechaPagoCuota, double valorCuota, double saldoPendiente, String gerente,
-      Persona cliente) {
+      int numeroCuotas, String fechaPagoCuota, double valorCuota, double saldoPendiente, String gerente) {
     this.estadoPrestamo = estadoPrestamo;
     this.tipoPrestamo = tipoPrestamo;
     this.monto = monto;
