@@ -28,33 +28,33 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Date;
 import java.util.Collection;
 
-public interface TransaccionRepository extends JpaRepository<Transaccion, TransaccionPK> {
+public interface TransaccionRepository extends JpaRepository<Transaccion, Integer> {
         @Query(value = "SELECT * FROM transacciones", nativeQuery = true)
         Collection<Transaccion> darTransacciones();
 
         @Query(value = "SELECT * FROM transacciones WHERE idOperacionCuenta = :idOperacionCuenta AND id_Cuenta = :id_Cuenta", nativeQuery = true)
-        Pertenece darTransaccion(@Param("idOperacionCuenta") String idOperacionCuenta,
-                        @Param("id_Cuenta") String id_Cuenta);
+        Pertenece darTransaccion(@Param("idOperacionCuenta") long idOperacionCuenta,
+                        @Param("id_Cuenta") long id_Cuenta);
 
         @Modifying
         @Transactional
         @Query(value = "DELETE FROM transacciones WHERE idOtransaccionesperacionCuenta = :idOperacionCuenta AND id_Cuenta = :id_Cuenta", nativeQuery = true)
-        void eliminarTransaccion(@Param("idOperacionCuenta") String idOperacionCuenta,
-                        @Param("id_Cuenta") String id_Cuenta);
+        void eliminarTransaccion(@Param("idOperacionCuenta") long idOperacionCuenta,
+                        @Param("id_Cuenta") long id_Cuenta);
 
         @Modifying
         @Transactional
         @Query(value = "UPDATE transacciones SET idOperacionCuenta = :idOperacionCuenta_actualizado, id_Cuenta = :id_Cuenta_actualizado WHERE idOperacionCuenta = :idOperacionCuenta AND id_Cuenta = :id_Cuenta", nativeQuery = true)
         void actualizarTransaccion(
-                        @Param("idOperacionCuenta") String idOperacionCuenta,
-                        @Param("id_Cuenta") String id_Cuenta,
-                        @Param("idOperacionCuenta_actualizado") String idOperacionCuenta_actualizado,
-                        @Param("id_Cuenta_actualizado") String id_Cuenta_actualizado);
+                        @Param("idOperacionCuenta") long idOperacionCuenta,
+                        @Param("id_Cuenta") long id_Cuenta,
+                        @Param("idOperacionCuenta_actualizado") long idOperacionCuenta_actualizado,
+                        @Param("id_Cuenta_actualizado") long id_Cuenta_actualizado);
 
         @Modifying
         @Transactional
         @Query(value = "INSERT INTO pertenecen (idOperacionCuenta, id_Cuenta) VALUES (:idOperacionCuenta, :id_Cuenta)", nativeQuery = true)
-        void insertaTransaccion(@Param("idOperacionCuenta") String idOperacionCuenta,
-                        @Param("id_Cuenta") String id_Cuenta);
+        void insertaTransaccion(@Param("idOperacionCuenta") long idOperacionCuenta,
+                        @Param("id_Cuenta") long id_Cuenta);
 
 }

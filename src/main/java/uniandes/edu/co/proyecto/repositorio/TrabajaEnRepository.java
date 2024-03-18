@@ -20,32 +20,32 @@ import uniandes.edu.co.proyecto.modelo.TrabajaEnPK;
 import java.sql.Date;
 import java.util.Collection;
 
-public interface TrabajaEnRepository extends JpaRepository<TrabajaEn, TrabajaEnPK> {
+public interface TrabajaEnRepository extends JpaRepository<TrabajaEn, Integer> {
         @Query(value = "SELECT * FROM trabajan", nativeQuery = true)
         Collection<Pertenece> darPertenecen();
 
         @Query(value = "SELECT * FROM trabajan WHERE id_Oficina = :id_Oficina AND id_Empleado = :id_Empleado", nativeQuery = true)
-        Pertenece darPertenecePorId(@Param("id_Oficina") String id_Oficina,
-                        @Param("id_Empleado") String id_Empleado);
+        Pertenece darPertenecePorId(@Param("id_Oficina") long id_Oficina,
+                        @Param("id_Empleado") long id_Empleado);
 
         @Modifying
         @Transactional
         @Query(value = "DELETE FROM trabajan WHERE id_Oficina = :id_Oficina AND id_Empleado = :id_Empleado", nativeQuery = true)
-        void elimnarPertenece(@Param("id_Oficina") String id_Oficina,
-                        @Param("id_Empleado") String id_Empleado);
+        void elimnarPertenece(@Param("id_Oficina") long id_Oficina,
+                        @Param("id_Empleado") long id_Empleado);
 
         @Modifying
         @Transactional
         @Query(value = "UPDATE trabajan SET id_Oficina = :id_Oficina_actualizado, id_Empleado = :id_Empleado_actualizado WHERE id_Oficina = :id_Oficina AND id_Empleado = :id_Empleado", nativeQuery = true)
         void actualizarFrecuentan(
-                        @Param("id_Oficina") String id_Oficina, @Param("id_Empleado") String id_Empleado,
-                        @Param("id_Oficina_actualizado") String id_Oficina_actualizado,
-                        @Param("id_Empleado_actualizado") String id_Empleado_actualizado);
+                        @Param("id_Oficina") long id_Oficina, @Param("id_Empleado") long id_Empleado,
+                        @Param("id_Oficina_actualizado") long id_Oficina_actualizado,
+                        @Param("id_Empleado_actualizado") long id_Empleado_actualizado);
 
         @Modifying
         @Transactional
-        @Query(value = "INSERT INTO trabaja (id_Oficina, id_Empleado) VALUES (:id_Oficina, :id_Empleado)", nativeQuery = true)
-        void insertarFrecuentan(@Param("id_Oficina") String id_Oficina,
-                        @Param("id_Empleado") String id_Empleado);
+        @Query(value = "INSERT INTO trabajan (id_Oficina, id_Empleado) VALUES (:id_Oficina, :id_Empleado)", nativeQuery = true)
+        void insertarFrecuentan(@Param("id_Oficina") long id_Oficina,
+                        @Param("id_Empleado") long id_Empleado);
 
 }

@@ -9,12 +9,12 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "puntosatencion")
+@Table(name = "puntos_Atencion")
 public class PuntoAtencion {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private String idPuntosAtencion;
+  private Integer id;
 
   private String tipo;
 

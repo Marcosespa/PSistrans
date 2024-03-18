@@ -13,22 +13,23 @@ import uniandes.edu.co.proyecto.modelo.Empleado;
 import uniandes.edu.co.proyecto.modelo.Oficina;
 import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
 
-public interface EmpleadoRepository extends JpaRepository<Empleado, String> {
+public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
 
   @Query(value = "SELECT * FROM empleados", nativeQuery = true)
   Collection<Oficina> darEmpleados();
 
-  @Query(value = "SELECT * FROM empleados WHERE id = :id", nativeQuery = true)
-  Oficina darEmpleado(@Param("id") int id);
+  @Query(value = "SELECT * FROM empleados WHERE numeroDocumento = :numeroDocumento", nativeQuery = true)
+  Oficina darEmpleado(@Param("numeroDocumento") long numeroDocumento);
 
   @Modifying
   @Transactional
-  @Query(value = "DELETE FROM empleados WHERE id = :id", nativeQuery = true)
-  void eliminarEmpleado(@Param("id") long id);
+  @Query(value = "DELETE FROM empleados WHERE numeroDocumento = :numeroDocumento", nativeQuery = true)
+  void eliminarEmpleado(@Param("numeroDocumento") long numeroDocumento);
+  // ESTE METODO TOCA CAMBIAR POR LOS PARAMETROS DE EMPLEDO
 
   @Modifying
   @Transactional
-  @Query(value = "INSERT INTO oficinas (id_Oficina, nombre, direccion, numPuntosAtencion, ciudad, gerente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
+  @Query(value = "INSERT INTO empleados (id_Oficina, nombre, direccion, numPuntosAtencion, ciudad, gerente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
   OperacionCuenta insertarOficina(@Param("nombre") String nombre,
       @Param("direccion") String direccion,
       @Param("numPuntosAtencion") Integer numPuntosAtencion,

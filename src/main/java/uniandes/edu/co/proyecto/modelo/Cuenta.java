@@ -17,7 +17,7 @@ public class Cuenta {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private String numeroCuenta;
+  private Integer numeroCuenta;
 
   private String estado;
 

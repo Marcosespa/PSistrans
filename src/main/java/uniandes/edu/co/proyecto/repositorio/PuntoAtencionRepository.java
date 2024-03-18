@@ -14,24 +14,32 @@ import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
 import uniandes.edu.co.proyecto.modelo.Prestamo;
 import uniandes.edu.co.proyecto.modelo.PuntoAtencion;
 
-public interface PuntoAtencionRepository extends JpaRepository<PuntoAtencion, String> {
+public interface PuntoAtencionRepository extends JpaRepository<PuntoAtencion, Integer> {
 
-  @Query(value = "SELECT * FROM puntosatencion", nativeQuery = true)
+  @Query(value = "SELECT * FROM puntos_Atencion", nativeQuery = true)
   Collection<PuntoAtencion> darPuntosAtencion();
 
-  @Query(value = "SELECT * FROM puntosatencion WHERE id = :id", nativeQuery = true)
+  @Query(value = "SELECT * FROM puntos_Atencion WHERE id = :id", nativeQuery = true)
   PuntoAtencion darPuntoAtencion(@Param("id") int id);
 
   @Modifying
   @Transactional
-  @Query(value = "DELETE FROM puntosatencion WHERE id = :id", nativeQuery = true)
+  @Query(value = "DELETE FROM puntos_Atencion WHERE id = :id", nativeQuery = true)
   void eliminarPuntoAtencion(@Param("id") long id);
 
   @Modifying
   @Transactional
-  @Query(value = "INSERT INTO puntosatencion (tipo, ciudad, horarioAtencion, direccion) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
+  @Query(value = "INSERT INTO puntos_Atencion (id, tipo, ciudad, horarioAtencion, direccion) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
   OperacionCuenta insertarPuntoAtencion(
       @Param("tipo") String tipo,
+      @Param("ciudad") String ciudad,
+      @Param("horarioAtencion") String horarioAtencion,
+      @Param("direccion") String direccion);
+
+  @Modifying
+  @Transactional
+  @Query(value = "UPDATE puntos_Atencion SET tipo = :tipo, ciudad = :ciudad, horarioAtencion = :horarioAtencion, direccion = :direccion  WHERE id = :id", nativeQuery = true)
+  void actualizarBebedor(@Param("id") long id, @Param("tipo") String tipo,
       @Param("ciudad") String ciudad,
       @Param("horarioAtencion") String horarioAtencion,
       @Param("direccion") String direccion);

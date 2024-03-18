@@ -10,8 +10,9 @@ import jakarta.persistence.Table;
 public class UsuarioCliente {
     @Id
     private String login;
+
     private String passwordCliente;
-    
+
     public UsuarioCliente(String login, String passwordCliente) {
         this.login = login;
         this.passwordCliente = passwordCliente;
@@ -20,15 +21,17 @@ public class UsuarioCliente {
     public String getLogin() {
         return login;
     }
+
     public String getPasswordCliente() {
         return passwordCliente;
     }
+
     public void setLogin(String login) {
         this.login = login;
     }
+
     public void setPasswordCliente(String passwordCliente) {
         this.passwordCliente = passwordCliente;
     }
 
-    
 }

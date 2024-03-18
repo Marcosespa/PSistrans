@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public abstract class Persona {
 
   @Id
-  private String numeroDocumento;
+  private Integer numeroDocumento;
 
   private String tipo;
 

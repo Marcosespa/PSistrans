@@ -14,7 +14,7 @@ public class OperacionCuenta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Integer id;
 
     private String tipoOperacion;
     private Date fecha;

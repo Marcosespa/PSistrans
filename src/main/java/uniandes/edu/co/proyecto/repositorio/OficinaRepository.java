@@ -14,7 +14,7 @@ import uniandes.edu.co.proyecto.modelo.Oficina;
 import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
 import uniandes.edu.co.proyecto.modelo.Prestamo;
 
-public interface OficinaRepository extends JpaRepository<Oficina, String> {
+public interface OficinaRepository extends JpaRepository<Oficina, Integer> {
 
   @Query(value = "SELECT * FROM oficinas", nativeQuery = true)
   Collection<Oficina> darOficinas();
@@ -29,7 +29,7 @@ public interface OficinaRepository extends JpaRepository<Oficina, String> {
 
   @Modifying
   @Transactional
-  @Query(value = "INSERT INTO oficinas (id_Oficina, nombre, direccion, numPuntosAtencion, ciudad, gerente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
+  @Query(value = "INSERT INTO oficinas (id, nombre, direccion, numPuntosAtencion, ciudad, gerente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
   OperacionCuenta insertarOficina(@Param("nombre") String nombre,
       @Param("direccion") String direccion,
       @Param("numPuntosAtencion") Integer numPuntosAtencion,
