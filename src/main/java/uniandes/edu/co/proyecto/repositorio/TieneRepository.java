@@ -10,10 +10,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import uniandes.edu.co.proyecto.modelo.TienePK;
-import uniandes.edu.co.proyecto.modelo.Empleado;
 import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
+import uniandes.edu.co.proyecto.modelo.Tiene;
 
-public interface TieneRepository extends JpaRepository<TienePK, String> {
+public interface TieneRepository extends JpaRepository<Tiene, TienePK> {
 
     @Query(value = "SELECT * FROM tienen", nativeQuery = true)
     Collection<TienePK> darTienen();
@@ -32,6 +32,5 @@ public interface TieneRepository extends JpaRepository<TienePK, String> {
     OperacionCuenta insertarTienen(
             @Param("id_prestamo") String id_Prestamo,
             @Param("id_cliente") String id_Cliente);
-
 
 }

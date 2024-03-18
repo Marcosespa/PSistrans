@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import uniandes.edu.co.proyecto.modelo.Cuenta;
+import uniandes.edu.co.proyecto.modelo.Oficina;
 import uniandes.edu.co.proyecto.modelo.PuntoAtencion;
 import uniandes.edu.co.proyecto.repositorio.OficinaRepository;
 import uniandes.edu.co.proyecto.repositorio.PuntoAtencionRepository;
@@ -28,40 +29,40 @@ public class OficinaController {
   }
 
   @GetMapping("/oficinas/new")
-  public String puntos_AtencionForm(Model model) {
+  public String oficinasForm(Model model) {
     model.addAttribute("punto_Atencion", new PuntoAtencion());
-    return "punto_AtencionNueva";
+    return "oficinaNueva";
   }
 
-  @PostMapping("/puntos_Atencion/new/save")
-  public String punto_AtencionGuardar(@ModelAttribute PuntoAtencion puntoAtencion) {
-    puntoAtencionRepository.insertarPuntoAtencion(puntoAtencion.getTipo(), puntoAtencion.getCiudad(),
-        puntoAtencion.getHorarioAtencion(), puntoAtencion.getDireccion());
-    return "redirect:/puntos_Atencion";
+  @PostMapping("/oficinas/new/save")
+  public String oficinasGuardar(@ModelAttribute Oficina oficina) {
+    oficinaRepository.insertarOficina(oficina.getNombre(), oficina.getDireccion(), oficina.getNumPuntosAtencion(),
+        oficina.getGerente(), oficina.getCiudad());
+    return "redirect:/oficinas";
   }
 
-  @GetMapping("/puntos_Atencion/{id}/edit")
-  public String punto_AtencionEditarForm(@PathVariable("id") int id, Model model) {
-    PuntoAtencion puntoAtencion = puntoAtencionRepository.darPuntoAtencion(id);
-    if (puntoAtencion != null) {
-      model.addAttribute("punto_Atencion", puntoAtencion);
-      return "punto_AtencionEditar";
+  @GetMapping("/oficinas/{id}/edit")
+  public String oficinasEditarForm(@PathVariable("id") int id, Model model) {
+    Oficina oficina = oficinaRepository.darOficina(id);
+    if (oficina != null) {
+      model.addAttribute("oficina", oficina);
+      return "oficinaEditar";
     } else {
-      return "redirect:/puntos_Atencion";
+      return "redirect:/oficinas";
     }
   }
 
-  @PostMapping("/puntos_Atencion/{id}/edit/save")
-  public String cuentaEditarGuardar(@PathVariable("id") long id, @ModelAttribute PuntoAtencion puntoAtencion) {
-    puntoAtencionRepository.actualizarPuntoAtencion(((long) id), puntoAtencion.getTipo(), puntoAtencion.getCiudad(),
-        puntoAtencion.getHorarioAtencion(), puntoAtencion.getDireccion());
-
+  @PostMapping("/oficinas/{id}/edit/save")
+  public String oficinaEditarGuardar(@PathVariable("id") long id, @ModelAttribute Oficina oficina) {
+    oficinaRepository.actualizarOficina(((long) id), oficina.getNombre(), oficina.getDireccion(),
+        oficina.getNumPuntosAtencion(), oficina.getCiudad(),
+        oficina.getGerente());
     return "redirect:/puntos_Atencion";
   }
 
-  @GetMapping("/puntos_Atencion/{id}/delete")
-  public String cuentaEliminar(@PathVariable("id") long id) {
-    puntoAtencionRepository.eliminarPuntoAtencion(id);
-    return "redirect:/puntos_Atencion";
+  @GetMapping("/oficinas/{id}/delete")
+  public String oficinaEliminar(@PathVariable("id") long id) {
+    oficinaRepository.eliminarOficina(id);
+    return "redirect:/oficinas";
   }
 }

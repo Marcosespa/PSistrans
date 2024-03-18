@@ -10,28 +10,28 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import uniandes.edu.co.proyecto.modelo.OperacionPrestamo;
+import uniandes.edu.co.proyecto.modelo.OperacionPrestamoRealizada;
 import uniandes.edu.co.proyecto.modelo.Empleado;
 import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
 
-public interface OperaPrestamoRepository extends JpaRepository<OperacionPrestamo, String> {
+public interface OperaPrestamoRepository extends JpaRepository<OperacionPrestamoRealizada, Integer> {
 
-    @Query(value = "SELECT * FROM tienen", nativeQuery = true)
+    @Query(value = "SELECT * FROM operacionesPrestamoRealizada", nativeQuery = true)
     Collection<OperacionPrestamo> darOperacionPrestamo();
 
-    @Query(value = "SELECT * FROM tienen WHERE numeroCuenta= :numeroCuenta", nativeQuery = true)
+    @Query(value = "SELECT * FROM operacionesPrestamoRealizada WHERE numeroCuenta= :numeroCuenta", nativeQuery = true)
     OperacionPrestamo darOperacionPrestamo(@Param("id") int id);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM cuentas WHERE id = :id", nativeQuery = true)
+    @Query(value = "DELETE FROM operacionesPrestamoRealizada WHERE id = :id", nativeQuery = true)
     void eliminarOperacionPrestamo(@Param("id") long id);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO cuentas (id_Prestamo, id_Cliente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
+    @Query(value = "INSERT INTO operacionesPrestamoRealizada (id_Prestamo, id_Cliente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
     OperacionCuenta insertarOperacionPrestamo(
             @Param("id_prestamo") String id_Prestamo,
             @Param("id_cliente") String id_Operacion_Cliente);
-
 
 }
