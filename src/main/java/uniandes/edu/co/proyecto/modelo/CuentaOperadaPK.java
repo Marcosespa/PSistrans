@@ -13,19 +13,17 @@ public class CuentaOperadaPK implements Serializable {
     @JoinColumn(name = "id_operacion", referencedColumnName = "id")
     private OperacionCuenta idOperacion;
 
-
     @OneToOne
-    @JoinColumn(name = "id_cuenta", referencedColumnName = "numero_cuenta")
-    private Cuenta idCuenta;
-    
-    public CuentaOperadaPK()
-    {
+    @JoinColumn(name = "numeroCuenta", referencedColumnName = "numero_cuenta")
+    private Cuenta numeroCuenta;
+
+    public CuentaOperadaPK() {
         super();
     }
 
-    public CuentaOperadaPK(OperacionCuenta idOperacion, Cuenta idCuenta) {
+    public CuentaOperadaPK(OperacionCuenta idOperacion, Cuenta numeroCuenta) {
         this.idOperacion = idOperacion;
-        this.idCuenta = idCuenta;
+        this.numeroCuenta = numeroCuenta;
     }
 
     public OperacionCuenta getIdOperacion() {
@@ -37,13 +35,11 @@ public class CuentaOperadaPK implements Serializable {
     }
 
     public Cuenta getIdCuenta() {
-        return idCuenta;
+        return numeroCuenta;
     }
 
-    public void setIdCuenta(Cuenta idCuenta) {
-        this.idCuenta = idCuenta;
+    public void setIdCuenta(Cuenta numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
     }
-
-    
 
 }

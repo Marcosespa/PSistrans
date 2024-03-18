@@ -24,9 +24,9 @@ public interface TrabajaEnRepository extends JpaRepository<TrabajaEn, Integer> {
         @Query(value = "SELECT * FROM trabajan", nativeQuery = true)
         Collection<TrabajaEn> darTrabajanEn();
 
-        @Query(value = "SELECT * FROM trabajan WHERE id_Oficina = :id_Oficina AND id_Empleado = :id_Empleado", nativeQuery = true)
+        @Query(value = "SELECT * FROM trabajan WHERE id_Oficina = :id_Oficina AND numeroDocumento = :numeroDocumento", nativeQuery = true)
         TrabajaEn darTrabajaEnporId(@Param("id_Oficina") long id_Oficina,
-                        @Param("id_Empleado") long id_Empleado);
+                        @Param("numeroDocumento") long numeroDocumento);
 
         @Modifying
         @Transactional
