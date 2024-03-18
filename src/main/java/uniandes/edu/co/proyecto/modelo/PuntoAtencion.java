@@ -20,25 +20,19 @@ public class PuntoAtencion {
 
   private String ciudad;
 
-  private String horarioAtencion; // NO ESTOY SEGURO SI ES STRING
+  private String horarioAtencion;
 
   private String direccion;
-
-  @ManyToMany
-  @JoinColumn(name = "oficina", referencedColumnName = "id")
-  private Oficina oficina;
 
   public PuntoAtencion() {
     ;
   }
 
-  public PuntoAtencion(String tipo, String ciudad, String horarioAtencion, String direccion,
-      Oficina oficina) {
+  public PuntoAtencion(String tipo, String ciudad, String horarioAtencion, String direccion) {
     this.tipo = tipo;
     this.ciudad = ciudad;
     this.horarioAtencion = horarioAtencion;
     this.direccion = direccion;
-    this.oficina = oficina;
   }
 
 }
