@@ -14,7 +14,7 @@ import uniandes.edu.co.proyecto.modelo.Oficina;
 import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
 import uniandes.edu.co.proyecto.modelo.Prestamo;
 
-public interface OficinaRepository extends JpaRepository<Oficina, Integer> {
+public interface OficinaRepository extends JpaRepository<Oficina, String> {
 
   @Query(value = "SELECT * FROM oficinas", nativeQuery = true)
   Collection<Oficina> darOficinas();

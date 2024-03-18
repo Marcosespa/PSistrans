@@ -14,7 +14,7 @@ public class PuntoAtencion {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer idPuntosAtencion;
+  private String idPuntosAtencion;
 
   private String tipo;
 

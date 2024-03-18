@@ -14,7 +14,7 @@ import uniandes.edu.co.proyecto.modelo.OperacionCuenta;
 import uniandes.edu.co.proyecto.modelo.Prestamo;
 import uniandes.edu.co.proyecto.modelo.PuntoAtencion;
 
-public interface PuntoAtencionRepository extends JpaRepository<PuntoAtencion, Integer> {
+public interface PuntoAtencionRepository extends JpaRepository<PuntoAtencion, String> {
 
   @Query(value = "SELECT * FROM puntosatencion", nativeQuery = true)
   Collection<PuntoAtencion> darPuntosAtencion();
