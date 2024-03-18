@@ -27,12 +27,13 @@ public interface PuntoAtencionRepository extends JpaRepository<PuntoAtencion, St
   @Query(value = "DELETE FROM puntosatencion WHERE id = :id", nativeQuery = true)
   void eliminarPuntoAtencion(@Param("id") long id);
 
-  @Query(value = "INSERT INTO puntosatencion (numeroCuenta, estado, saldo, tipo, ultimaTransaccion, fechaCreacion, gerente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
-  OperacionCuenta insertarCuenta(@Param("estado") String estado,
-      @Param("saldo") double saldo,
+  @Modifying
+  @Transactional
+  @Query(value = "INSERT INTO puntosatencion (tipo, ciudad, horarioAtencion, direccion) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
+  OperacionCuenta insertarCuenta(
       @Param("tipo") String tipo,
-      @Param("ultimaTransaccion") Date ultimaTransaccion,
-      @Param("fechaCreacion") Date fechaCreacion,
-      @Param("gerente") Empleado gerente);
+      @Param("ciudad") String ciudad,
+      @Param("horarioAtencion") String horarioAtencion,
+      @Param("direccion") String direccion);
 
 }
