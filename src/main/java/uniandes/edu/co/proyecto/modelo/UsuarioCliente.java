@@ -17,6 +17,8 @@ public class UsuarioCliente {
         this.passwordCliente = passwordCliente;
     }
 
+    public UsuarioCliente() {;}
+
     public String getLogin() {
         return login;
     }
