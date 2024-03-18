@@ -11,37 +11,37 @@ public class TienePK implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_prestamo", referencedColumnName = "id")
-    private Prestamo idPrestamo;
+    private Prestamo id_prestamo;
 
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id")
-    private Cliente idCliente;
+    @JoinColumn(name = "id_cliente", referencedColumnName = "numero_documento")
+    private Cliente id_cliente;
 
     public TienePK()
     {
         super();
     }
 
-    public TienePK(Prestamo idPrestamo, Cliente idCliente) {
-        this.idPrestamo = idPrestamo;
-        this.idCliente = idCliente;
+    public TienePK(Prestamo id_prestamo, Cliente id_cliente) {
+        this.id_prestamo = id_prestamo;
+        this.id_cliente = id_cliente;
     }
 
     public Prestamo getIdPrestamo() {
-        return idPrestamo;
+        return id_prestamo;
     }
 
-    public void setIdPrestamo(Prestamo idPrestamo) {
-        this.idPrestamo = idPrestamo;
+    public void setIdPrestamo(Prestamo id_prestamo) {
+        this.id_prestamo = id_prestamo;
     }
 
     public Cliente getIdCliente() {
-        return idCliente;
+        return id_cliente;
     }
 
-    public void setIdCliente(Cliente idCliente) {
-        this.idCliente = idCliente;
+    public void setIdCliente(Cliente id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     

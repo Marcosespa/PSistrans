@@ -13,7 +13,7 @@ public class Cliente {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer numeroDocumento;
+  private String numero_documento;
 
   private String tipo; // Este se refiere a tipo de personas natural o juridica
   private String tipoDocumento;
@@ -30,10 +30,10 @@ public class Cliente {
     ;
   }
 
-  public Cliente(Integer numeroDocumento, String tipo, String tipoDocumento, String nombre, String nacionalidad,
+  public Cliente(String numeroDocumento, String tipo, String tipoDocumento, String nombre, String nacionalidad,
       String direccionFisica, String direccionElectronica, String telefono, String codigoPostal, String ciudad,
       String departamento) {
-    this.numeroDocumento = numeroDocumento;
+    this.numero_documento = numeroDocumento;
     this.tipo = tipo;
     this.tipoDocumento = tipoDocumento;
     this.nombre = nombre;
@@ -46,12 +46,12 @@ public class Cliente {
     this.departamento = departamento;
   }
 
-  public Integer getNumeroDocumento() {
-    return numeroDocumento;
+  public String getNumeroDocumento() {
+    return numero_documento;
   }
 
-  public void setNumeroDocumento(Integer numeroDocumento) {
-    this.numeroDocumento = numeroDocumento;
+  public void setNumeroDocumento(String numeroDocumento) {
+    this.numero_documento = numeroDocumento;
   }
 
   public String getTipo() {

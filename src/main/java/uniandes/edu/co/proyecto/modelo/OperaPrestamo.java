@@ -14,8 +14,8 @@ public class OperaPrestamo {
         ;
     }
 
-    public OperaPrestamo(Prestamo id_Prestamo, OperaPrestamo id_Opera_Prestamo) {
-        this.pk = new OperaPrestamoPK(id_Prestamo, id_Opera_Prestamo);
+    public OperaPrestamo(Prestamo id_prestamo, OperacionPrestamo id_Operacion) {
+        this.pk = new OperaPrestamoPK(id_prestamo, id_Operacion);
     }
 
     public OperaPrestamoPK getPk() {

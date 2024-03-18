@@ -11,8 +11,8 @@ public class TieneUsuarioEmpleado {
     @EmbeddedId
     private TieneUsuarioEmpleadoPK pk;
 
-    public TieneUsuarioEmpleado(TieneUsuarioEmpleadoPK pk) {
-        this.pk = pk;
+    public TieneUsuarioEmpleado(Cliente numero_documento, UsuarioCliente login) {
+        this.pk = new TieneUsuarioEmpleadoPK(numero_documento, login);
     }
 
     public TieneUsuarioEmpleadoPK getPk() {
