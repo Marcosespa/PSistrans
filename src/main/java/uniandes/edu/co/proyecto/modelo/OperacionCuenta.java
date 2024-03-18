@@ -24,6 +24,10 @@ public class OperacionCuenta {
     private String puntoAtencion;
     private String cuentaLlegada;
 
+    public OperacionCuenta() {
+        ;
+    }
+
     public OperacionCuenta(String tipoOperacion, Date fecha, String cuentaSalida, String montoOperacion,
             Date cliente, String puntoAtencion, String cuentaLlegada) {
         this.tipoOperacion = tipoOperacion;

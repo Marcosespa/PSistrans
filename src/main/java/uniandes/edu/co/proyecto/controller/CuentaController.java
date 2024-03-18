@@ -38,7 +38,7 @@ public class CuentaController {
     return "redirect:/cuentas";
   }
 
-  @GetMapping("/cuentas/{id}/edit")
+  @GetMapping("/cuentas/{numeroCuenta}/edit")
   public String cuentaEditarForm(@PathVariable("numeroCuenta") int numeroCuenta, Model model) {
     Cuenta cuenta = cuentaRepository.darCuenta(numeroCuenta);
     if (cuenta != null) {
@@ -47,6 +47,20 @@ public class CuentaController {
     } else {
       return "redirect:/cuentas";
     }
+  }
 
+  @PostMapping("/cuentas/{numeroCuenta}/edit/save")
+  public String cuentaEditarGuardar(@PathVariable("numeroCuenta") long numeroCuenta,
+      @ModelAttribute Cuenta cuenta) {
+
+    cuentaRepository.actualizarCuenta(cuenta.getEstado(), cuenta.getSaldo(), cuenta.getTipo(),
+        cuenta.getUltimaTransaccion(), cuenta.getFechaCreacion(), cuenta.getGerente());
+    return "redirect:/cuentas";
+  }
+
+  @GetMapping("/cuentas/{numeroCuenta}/delete")
+  public String cuentaEliminar(@PathVariable("numeroCuenta") long numeroCuenta) {
+    cuentaRepository.eliminarCuenta(numeroCuenta);
+    return "redirect:/cuentas";
   }
 }

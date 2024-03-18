@@ -29,7 +29,7 @@ public interface CuentaRepository extends JpaRepository<Cuenta, Integer> {
         @Modifying
         @Transactional
         @Query(value = "INSERT INTO cuentas (numeroCuenta, estado, saldo, tipo, ultimaTransaccion, fechaCreacion, gerente) VALUES(proyecto_sequence.nextval) ", nativeQuery = true)
-        OperacionCuenta insertarCuenta(@Param("estado") String estado,
+        void insertarCuenta(@Param("estado") String estado,
                         @Param("saldo") double saldo,
                         @Param("tipo") String tipo,
                         @Param("ultimaTransaccion") Date ultimaTransaccion,
@@ -39,7 +39,8 @@ public interface CuentaRepository extends JpaRepository<Cuenta, Integer> {
         @Modifying
         @Transactional
         @Query(value = "UPDATE cuentas SET estado = :estado, saldo = :saldo, tipo = :tipo, ultimaTransaccion = :ultimaTransaccion, fechaCreacion =: fechaCreacion, gerente:=gerente WHERE numeroCuenta = :numeroCuenta", nativeQuery = true)
-        void actualizarBar(@Param("estado") String estado,
+        void actualizarCuenta(@Param("numeroCuenta") long numeroCuenta,
+                        @Param("estado") String estado,
                         @Param("saldo") double saldo,
                         @Param("tipo") String tipo,
                         @Param("ultimaTransaccion") Date ultimaTransaccion,

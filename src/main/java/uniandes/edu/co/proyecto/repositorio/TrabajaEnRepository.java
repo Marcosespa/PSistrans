@@ -22,22 +22,22 @@ import java.util.Collection;
 
 public interface TrabajaEnRepository extends JpaRepository<TrabajaEn, Integer> {
         @Query(value = "SELECT * FROM trabajan", nativeQuery = true)
-        Collection<Pertenece> darPertenecen();
+        Collection<TrabajaEn> darTrabajanEn();
 
         @Query(value = "SELECT * FROM trabajan WHERE id_Oficina = :id_Oficina AND id_Empleado = :id_Empleado", nativeQuery = true)
-        Pertenece darPertenecePorId(@Param("id_Oficina") long id_Oficina,
+        TrabajaEn darTrabajaEnporId(@Param("id_Oficina") long id_Oficina,
                         @Param("id_Empleado") long id_Empleado);
 
         @Modifying
         @Transactional
         @Query(value = "DELETE FROM trabajan WHERE id_Oficina = :id_Oficina AND id_Empleado = :id_Empleado", nativeQuery = true)
-        void elimnarPertenece(@Param("id_Oficina") long id_Oficina,
+        void elimnarTrabajaEn(@Param("id_Oficina") long id_Oficina,
                         @Param("id_Empleado") long id_Empleado);
 
         @Modifying
         @Transactional
         @Query(value = "UPDATE trabajan SET id_Oficina = :id_Oficina_actualizado, id_Empleado = :id_Empleado_actualizado WHERE id_Oficina = :id_Oficina AND id_Empleado = :id_Empleado", nativeQuery = true)
-        void actualizarFrecuentan(
+        void actualizarTrabajaEn(
                         @Param("id_Oficina") long id_Oficina, @Param("id_Empleado") long id_Empleado,
                         @Param("id_Oficina_actualizado") long id_Oficina_actualizado,
                         @Param("id_Empleado_actualizado") long id_Empleado_actualizado);
@@ -45,7 +45,7 @@ public interface TrabajaEnRepository extends JpaRepository<TrabajaEn, Integer> {
         @Modifying
         @Transactional
         @Query(value = "INSERT INTO trabajan (id_Oficina, id_Empleado) VALUES (:id_Oficina, :id_Empleado)", nativeQuery = true)
-        void insertarFrecuentan(@Param("id_Oficina") long id_Oficina,
+        void insertarTrabajaEn(@Param("id_Oficina") long id_Oficina,
                         @Param("id_Empleado") long id_Empleado);
 
 }
