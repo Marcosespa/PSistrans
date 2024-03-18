@@ -14,16 +14,16 @@ public class TransaccionPK implements Serializable {
     private OperacionCuenta id_OperacionCuenta;
 
     @ManyToOne
-    @JoinColumn(name = "id_Cuenta", referencedColumnName = "id")
-    private Cuenta id_Cuenta;
+    @JoinColumn(name = "numeroCuenta", referencedColumnName = "numeroCuenta")
+    private Cuenta numeroCuenta;
 
     public TransaccionPK() {
         super();
     }
 
-    public TransaccionPK(OperacionCuenta id_OperacionCuenta, Cuenta id_Cuenta) {
+    public TransaccionPK(OperacionCuenta id_OperacionCuenta, Cuenta numeroCuenta) {
         this.id_OperacionCuenta = id_OperacionCuenta;
-        this.id_Cuenta = id_Cuenta;
+        this.numeroCuenta = numeroCuenta;
     }
 
     public OperacionCuenta getId_OperacionCuenta() {
