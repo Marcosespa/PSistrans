@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "trabaja_En")
+@Table(name = "trabajanEn")
 public class TrabajaEn {
 
     @EmbeddedId
@@ -15,8 +15,8 @@ public class TrabajaEn {
         ;
     }
 
-    public TrabajaEn(Empleado id_Empleado, Oficina id_Oficina) {
-        this.pk = new TrabajaEnPK(id_Empleado, id_Oficina);
+    public TrabajaEn(Empleado numeroDocumento, Oficina id_Oficina) {
+        this.pk = new TrabajaEnPK(numeroDocumento, id_Oficina);
     }
 
     public TrabajaEnPK getPk() {

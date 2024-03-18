@@ -9,8 +9,8 @@ import jakarta.persistence.ManyToOne;
 public class TrabajaEnPK implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name = "id_Empleado", referencedColumnName = "id")
-    private Empleado idEmpleado;
+    @JoinColumn(name = "numeroDocumento", referencedColumnName = "numeroDocumento")
+    private Empleado numeroDocumento;
 
     @ManyToOne
     @JoinColumn(name = "id_Oficina", referencedColumnName = "id")
@@ -20,17 +20,17 @@ public class TrabajaEnPK implements Serializable {
         super();
     }
 
-    public TrabajaEnPK(Empleado idEmpleado, Oficina idOficina) {
-        this.idEmpleado = idEmpleado;
+    public TrabajaEnPK(Empleado numeroDocumento, Oficina idOficina) {
+        this.numeroDocumento = numeroDocumento;
         this.idOficina = idOficina;
     }
 
     public Empleado getIdEmpleado() {
-        return idEmpleado;
+        return numeroDocumento;
     }
 
-    public void setIdEmpleado(Empleado idEmpleado) {
-        this.idEmpleado = idEmpleado;
+    public void setIdEmpleado(Empleado numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
     }
 
     public Oficina getIdOficina() {

@@ -15,7 +15,7 @@ public class Oficina {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private String id_Oficina;
+  private Integer id;
 
   private String nombre;
 
@@ -36,6 +36,54 @@ public class Oficina {
     this.direccion = direccion;
     this.numPuntosAtencion = numPuntosAtencion;
     this.ciudad = ciudad;
+    this.gerente = gerente;
+  }
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+
+  public String getDireccion() {
+    return direccion;
+  }
+
+  public void setDireccion(String direccion) {
+    this.direccion = direccion;
+  }
+
+  public Integer getNumPuntosAtencion() {
+    return numPuntosAtencion;
+  }
+
+  public void setNumPuntosAtencion(Integer numPuntosAtencion) {
+    this.numPuntosAtencion = numPuntosAtencion;
+  }
+
+  public String getCiudad() {
+    return ciudad;
+  }
+
+  public void setCiudad(String ciudad) {
+    this.ciudad = ciudad;
+  }
+
+  public Empleado getGerente() {
+    return gerente;
+  }
+
+  public void setGerente(Empleado gerente) {
     this.gerente = gerente;
   }
 

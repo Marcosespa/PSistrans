@@ -17,7 +17,7 @@ public class Cuenta {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private String numeroCuenta;
+  private Integer numeroCuenta;
 
   private String estado;
 
@@ -45,11 +45,11 @@ public class Cuenta {
     this.gerente = gerente;
   }
 
-  public String getNumeroCuenta() {
+  public Integer getNumeroCuenta() {
     return numeroCuenta;
   }
 
-  public void setNumeroCuenta(String numeroCuenta) {
+  public void setNumeroCuenta(Integer numeroCuenta) {
     this.numeroCuenta = numeroCuenta;
   }
 

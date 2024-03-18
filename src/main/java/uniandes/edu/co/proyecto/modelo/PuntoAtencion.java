@@ -9,36 +9,70 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "puntosatencion")
+@Table(name = "puntos_Atencion")
 public class PuntoAtencion {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private String idPuntosAtencion;
+  private Integer id;
 
   private String tipo;
 
   private String ciudad;
 
-  private String horarioAtencion; // NO ESTOY SEGURO SI ES STRING
+  private String horarioAtencion;
 
   private String direccion;
-
-  @ManyToMany
-  @JoinColumn(name = "oficina", referencedColumnName = "id")
-  private Oficina oficina;
 
   public PuntoAtencion() {
     ;
   }
 
-  public PuntoAtencion(String tipo, String ciudad, String horarioAtencion, String direccion,
-      Oficina oficina) {
+  public PuntoAtencion(String tipo, String ciudad, String horarioAtencion, String direccion) {
     this.tipo = tipo;
     this.ciudad = ciudad;
     this.horarioAtencion = horarioAtencion;
     this.direccion = direccion;
-    this.oficina = oficina;
+  }
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getTipo() {
+    return tipo;
+  }
+
+  public void setTipo(String tipo) {
+    this.tipo = tipo;
+  }
+
+  public String getCiudad() {
+    return ciudad;
+  }
+
+  public void setCiudad(String ciudad) {
+    this.ciudad = ciudad;
+  }
+
+  public String getHorarioAtencion() {
+    return horarioAtencion;
+  }
+
+  public void setHorarioAtencion(String horarioAtencion) {
+    this.horarioAtencion = horarioAtencion;
+  }
+
+  public String getDireccion() {
+    return direccion;
+  }
+
+  public void setDireccion(String direccion) {
+    this.direccion = direccion;
   }
 
 }
